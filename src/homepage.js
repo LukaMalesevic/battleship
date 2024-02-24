@@ -48,15 +48,10 @@ function placementPageHTML(player, placementText, axisBtn, fields, counter = 0)
             element.addEventListener('click', () =>{
                 if(element.classList.contains('available'))
                 { 
-                    
-
-
-
-                    // if(counter === 5) return null;
                     resetBoardColors(fields);
                     player.board.placeAShip([i, j], player.board.boardShips[counter], axisBtn.innerHTML, player.board.board);
                     setUpTheBoatImage(player, counter, element, axisBtn.innerHTML);
-                    counter++;
+                    if(counter < 4) counter++;
                     validateFields(fields, player, axisBtn, counter);
                     placementText.innerHTML = player.name + ', PLACE YOUR ' + player.board.boardShips[counter].name + ':';
                     placementText.innerHTML = placementText.innerHTML.toUpperCase();
@@ -161,8 +156,10 @@ function drawShipFields(fields, player, axisBtn, counter, x, y, color)
 
 function setUpTheBoatImage(player, counter, element, axis)
 {   
-    console.log(`<img class="${player.board.boardShips[counter].name.toLowerCase()}${axis.charAt(axis.length - 1).toLowerCase()}" src="/dist/images/${player.board.boardShips[counter].name.toLowerCase()}.png" alt="">`);
-    element.innerHTML = `<img class="${player.board.boardShips[counter].name.toLowerCase()}${axis.charAt(axis.length - 1).toLowerCase()}" src="/dist/images/${player.board.boardShips[counter].name.toLowerCase()}.png" alt="">`
+    let className;
+    if(counter === 4) className = 'patrol_boat' + axis.charAt(axis.length - 1).toLowerCase();
+    else className = player.board.boardShips[counter].name.toLowerCase() + axis.charAt(axis.length - 1).toLowerCase();
+    element.innerHTML = `<img class="${className}" src="/dist/images/${player.board.boardShips[counter].name.toLowerCase()}.png" alt="">`
     
 }
 

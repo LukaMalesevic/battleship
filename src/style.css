@@ -143,7 +143,6 @@ legend{
   opacity: 0.75;
 }
 
-
 .carriery{
   width: 240px;
   height: 35px;
@@ -151,6 +150,102 @@ legend{
   position: relative;
   left: -97px;
   bottom: -105px;
+  filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
+  opacity: 0.75;
+}
+
+.battleshipx{
+  width: 192px;
+  height: 35px;
+  box-sizing: border-box;
+  position: relative;
+  filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
+  opacity: 0.75;
+  left: 4px;
+  bottom: -5px;
+}
+
+
+.battleshipy{
+  width: 192px;
+  height: 35px;
+  rotate: 90deg;
+  box-sizing: border-box;
+  position: relative;
+  left: -73px;
+  bottom: -80px;
+  filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
+  opacity: 0.75;
+}
+
+.destroyerx{
+  width: 145px;
+  height: 35px;
+  box-sizing: border-box;
+  position: relative;
+  filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
+  opacity: 0.75;
+  left: 4px;
+  bottom: -5px;
+}
+
+
+.destroyery{
+  width: 145px;
+  height: 35px;
+  rotate: 90deg;
+  box-sizing: border-box;
+  position: relative;
+  left: -50px;
+  bottom: -58px;
+  filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
+  opacity: 0.75;
+}
+
+.submarinex{
+  width: 140px;
+  height: 35px;
+  box-sizing: border-box;
+  position: relative;
+  filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
+  opacity: 0.75;
+  left: 4px;
+  bottom: -5px;
+}
+
+
+.submariney{
+  width: 140px;
+  height: 35px;
+  rotate: 90deg;
+  box-sizing: border-box;
+  position: relative;
+  left: -48px;
+  bottom: -58px;
+  filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
+  opacity: 0.75;
+}
+
+.patrol_boatx{
+  width: 90px;
+  height: 35px;
+  box-sizing: border-box;
+  position: relative;
+  filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
+  opacity: 0.75;
+  left: 4px;
+  bottom: -5px;
+}
+
+
+.patrol_boaty{
+  width: 90px;
+  height: 35px;
+  rotate: 90deg;
+  box-sizing: border-box;
+  position: relative;
+  left: -22px;
+  bottom: -32px;
   filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
   opacity: 0.75;
 }
