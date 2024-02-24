@@ -26,11 +26,11 @@ class Gameboard
         {
             for(let i = 0; i < ship.length; i++)
             {
-                board[coordinates[0]][coordinates[1]] = ship.name;
+                board[coordinates[0] + i][coordinates[1]] = ship.name;
             }
         }
 
-       return board;
+        return board;
     }
 
     receiveAttack(coordinates, board)

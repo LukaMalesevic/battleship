@@ -1,7 +1,7 @@
 import { gb1 } from "./gameboard";
 
-test("place a ship for coordinates 0, 0 on x axis for ship CARRIER on player's board", () => {
-    expect(gb1.placeAShip([0, 0], gb1.boardShips[0], 'x', gb1.board))
+test.only("place a ship for coordinates 0, 0 on x axis for ship CARRIER on player's board", () => {
+    expect(gb1.placeAShip([0, 0], gb1.boardShips[0], 'AXIS: X', gb1.board))
     .toEqual([ 
         ['CARRIER', 'CARRIER', 'CARRIER', 'CARRIER', 'CARRIER', null, null, null, null, null],
         [null, null, null, null, null, null, null, null, null, null],

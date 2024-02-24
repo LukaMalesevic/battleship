@@ -39,7 +39,7 @@ function placementPageHTML(player, placementText, axisBtn, fields, counter = 0)
         if(axisBtn.innerHTML === 'AXIS: Y') axisBtn.innerHTML = 'AXIS: X';
         else if(axisBtn.innerHTML === 'AXIS: X') axisBtn.innerHTML = 'AXIS: Y';
         validateFields(fields, player, axisBtn, counter);
-        
+        validateFieldsForAnotherBoats(fields, player, axisBtn, counter);        
     })
 
     fields.forEach((innerArray, i) => {
@@ -53,6 +53,7 @@ function placementPageHTML(player, placementText, axisBtn, fields, counter = 0)
                     setUpTheBoatImage(player, counter, element, axisBtn.innerHTML);
                     if(counter < 4) counter++;
                     validateFields(fields, player, axisBtn, counter);
+                    validateFieldsForAnotherBoats(fields, player, axisBtn, counter);
                     placementText.innerHTML = player.name + ', PLACE YOUR ' + player.board.boardShips[counter].name + ':';
                     placementText.innerHTML = placementText.innerHTML.toUpperCase();
                 }
@@ -83,6 +84,59 @@ function placementPageHTML(player, placementText, axisBtn, fields, counter = 0)
 
 }
 
+function validateFieldsForAnotherBoats(fields, player, axisBtn, counter)
+{
+
+    // console.log(player.board.board);
+    if(axisBtn.innerHTML === 'AXIS: X')
+    {
+        for(let x = 0; x < 10; x++)
+        {
+            for(let y = 0; y < 10; y++)
+            {
+                for(let i = 0; i < player.board.boardShips[counter].length; i++)
+                {
+                    if(( y + i ) < 10 && player.board.board[x][y + i] !== null)
+                    {
+                        for(let j = 0; j < player.board.boardShips[counter].length; j++)
+                        {
+                            if(( y + j ) < 10)
+                            {
+                                fields[x][y + j].classList.add('unavailable');
+                                fields[x][y + j].classList.remove('available');
+                            }
+                            break;
+                        }
+        
+                    }
+                }
+            }
+        }
+    }else if(axisBtn.innerHTML === 'AXIS: Y')
+    {
+        for(let x = 0; x < 10; x++)
+        {
+            for(let y = 0; y < 10; y++)
+            {
+                for(let i = 0; i < player.board.boardShips[counter].length; i++)
+                {
+                    if(( x + i ) < 10 && player.board.board[x + i][y] !== null)
+                    {
+                        for(let j = 0; j < player.board.boardShips[counter].length; j++)
+                        {
+                            if(( x + j ) < 10)
+                            {
+                                fields[x + j][y].classList.add('unavailable');
+                                fields[x + j][y].classList.remove('available');
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 function validateFields(fields, player, axisBtn, counter)
 {  
     if(axisBtn.innerHTML === 'AXIS: X')
@@ -134,6 +188,7 @@ function validateFields(fields, player, axisBtn, counter)
             }
         }
     }
+
 }
 
 function drawShipFields(fields, player, axisBtn, counter, x, y, color)
