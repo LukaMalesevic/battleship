@@ -59,4 +59,4 @@ class Gameboard
 
 const gb1 = new Gameboard();
 
-export { gb1 }
+export { gb1, Gameboard}
