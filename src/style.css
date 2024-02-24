@@ -131,3 +131,26 @@ legend{
   background-color: #c51e1e;
   cursor: not-allowed;
 }
+
+.carrierx{
+  width: 240px;
+  height: 35px;
+  box-sizing: border-box;
+  position: relative;
+  left: 7px;
+  bottom: -5px;
+  filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
+  opacity: 0.75;
+}
+
+
+.carriery{
+  width: 240px;
+  height: 35px;
+  rotate: 90deg;
+  position: relative;
+  left: -97px;
+  bottom: -105px;
+  filter: invert(81%) sepia(70%) saturate(6220%) hue-rotate(192deg) brightness(100%) contrast(91%);
+  opacity: 0.75;
+}
