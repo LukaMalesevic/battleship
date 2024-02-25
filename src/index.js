@@ -3,6 +3,7 @@ import { logoImage, homepageDiv, inputName, startGameBtn, nameRequired} from "./
 import { placementPage, placementTxt, axisBtn, fields } from "./dom-elements";
 import { opacity0To1, opacity1To0, placementPageHTML} from "./homepage";
 import { Gameboard } from "./gameboard";
+import { generateAIBoats } from "./ai";
 
 class Player{
     constructor(name)
@@ -17,6 +18,7 @@ const player = new Player();
 
 document.addEventListener('DOMContentLoaded', () => {
     opacity0To1(homepageDiv);
+    generateAIBoats();
 })
 
 startGameBtn.addEventListener('click', () =>{
@@ -28,3 +30,5 @@ startGameBtn.addEventListener('click', () =>{
         placementPageHTML(player, placementTxt, axisBtn, fields);
     }
 })
+
+export { AI }

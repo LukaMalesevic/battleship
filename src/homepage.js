@@ -243,9 +243,4 @@ function resetBoardColors(field)
     });
 }
 
-function battlePageHTML()
-{
-
-}
-
-export { opacity0To1, opacity1To0, placementPageHTML}
+export { opacity0To1, opacity1To0, placementPageHTML, setUpTheBoatImage, validateFields, validateFieldsForAnotherBoats}
