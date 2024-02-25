@@ -22,7 +22,7 @@ class Gameboard
             {
                 board[coordinates[0]][coordinates[1] + i] = ship.name;
             }
-        }else (axis === 'AXIS: Y')
+        }else if(axis === 'AXIS: Y')
         {
             for(let i = 0; i < ship.length; i++)
             {
