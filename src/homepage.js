@@ -1,3 +1,4 @@
+import { battleHTML } from "./battle";
 import { logoImage } from "./dom-elements";
 import { placementPage, bothFields, fieldsTableAi, watersTxt, ordersResults, ordersResultsTxt} from "./dom-elements";
 
@@ -42,6 +43,7 @@ function opacity1To0(element1, element2)
             ordersResults.style.height = '60px';
             watersTxt.style.visibility = 'visible';
             opacity0To1(element1);
+            battleHTML();
             clearInterval(interval);
         }
     }

@@ -2,6 +2,8 @@ import { AI } from ".";
 import { validateFieldsForAnotherBoats, validateFields, setUpTheBoatImage } from "./homepage";
 import { fieldsAI } from "./dom-elements";
 
+let AIshipsCordinates = [];
+
 function generateAIBoats()
 {
     for(let i = 0; i < 5; i++)
@@ -22,6 +24,7 @@ function generateAIBoats()
 
             if(fieldsAI[x][y].classList.contains('available') && AI.board.board[x][y] === null)
             {
+                AIshipsCordinates.push([x, y]);
                 setUpTheBoatImage(AI, i, fieldsAI[x][y], axisAI.innerHTML);
                 AI.board.placeAShip([x, y], AI.board.boardShips[i], axisAI.innerHTML, AI.board.board)
                 validation = true;
@@ -29,6 +32,12 @@ function generateAIBoats()
 
         }while(validation === false)
     }
+
+    fieldsAI.forEach(innerArray => {
+        innerArray.forEach(element => {
+            element.classList.remove('available', 'unavailable');
+        });
+    });
 }
 
-export { generateAIBoats }
+export { generateAIBoats, AIshipsCordinates }

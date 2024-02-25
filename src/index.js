@@ -31,4 +31,4 @@ startGameBtn.addEventListener('click', () =>{
     }
 })
 
-export { AI }
+export { AI , player }

@@ -175,11 +175,13 @@ legend{
   background-color: transparent;
   border: 1px solid white;
   border-radius: 2px;
-}
-
-.available, .unavailable{
+  position: relative;
   transition: 0.3s ease-in-out;
 }
+
+/* .available, .unavailable{
+  transition: 0.3s ease-in-out;
+} */
 
 .available:hover{
   background-color: #b8b7b7;
@@ -189,6 +191,21 @@ legend{
 .unavailable:hover{
   background-color: #c51e1e;
   cursor: not-allowed;
+}
+
+.hit, .no_hit{
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: red;
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - 7.5px);
+  right: calc(50% - 7.5px);
+}
+
+.no_hit{
+  background-color: white;
 }
 
 .carrierx{
