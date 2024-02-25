@@ -1,4 +1,5 @@
 import { logoImage } from "./dom-elements";
+import { placementPage, bothFields, fieldsTableAi, watersTxt, ordersResults, ordersResultsTxt} from "./dom-elements";
 
 function opacity0To1(element)
 {
@@ -18,13 +19,31 @@ function opacity1To0(element1, element2)
     opacity -= 0.01;
     if(opacity <= 0)
     {
-        element1.style.visibility = 'hidden';
-        element1.style.height = '0';
-        logoImage.style.width = '250px';
-        logoImage.style.top = '-10px';
-        element2.style.visibility = 'visible';
-        element2.style.height = '80%';
-        clearInterval(interval);
+        if(element1 !== element2)
+        {
+            element1.style.visibility = 'hidden';
+            element1.style.height = '0';
+            logoImage.style.width = '250px';
+            logoImage.style.top = '-10px';
+            element2.style.visibility = 'visible';
+            element2.style.height = '80%';
+            clearInterval(interval);
+        }
+        else
+        {
+            while(placementPage.firstChild !== bothFields && placementPage.firstChild !== watersTxt)
+            placementPage.removeChild(placementPage.firstChild);
+            bothFields.style.gap = '100px';
+            fieldsTableAi.style.width = '500px';
+            fieldsTableAi.style.height = 'auto';
+            fieldsTableAi.style.visibility = 'visible'
+            fieldsTableAi.style.position = 'static';
+            ordersResults.style.position = 'static';
+            ordersResults.style.height = '60px';
+            watersTxt.style.visibility = 'visible';
+            opacity0To1(element1);
+            clearInterval(interval);
+        }
     }
     }, 25);   
 }
@@ -46,38 +65,48 @@ function placementPageHTML(player, placementText, axisBtn, fields, counter = 0)
         innerArray.forEach((element, j) => {
 
             element.addEventListener('click', () =>{
-                if(element.classList.contains('available'))
+                if(element.classList.contains('available') && counter < 5)
                 { 
                     resetBoardColors(fields);
                     player.board.placeAShip([i, j], player.board.boardShips[counter], axisBtn.innerHTML, player.board.board);
                     setUpTheBoatImage(player, counter, element, axisBtn.innerHTML);
-                    if(counter < 4) counter++;
-                    validateFields(fields, player, axisBtn, counter);
-                    validateFieldsForAnotherBoats(fields, player, axisBtn, counter);
-                    placementText.innerHTML = player.name + ', PLACE YOUR ' + player.board.boardShips[counter].name + ':';
-                    placementText.innerHTML = placementText.innerHTML.toUpperCase();
-                    console.log(fields);
-                    console.log(player.board.board)
+                    counter++;
+                    if(counter === 5)
+                    {
+                        fields.forEach(IE => {
+                            IE.forEach(e => {
+                                e.classList.remove('available', 'unavailable');
+                            });
+                        });
+                        opacity1To0(placementPage, placementPage); 
+                    }
+                    else
+                    {
+                        validateFields(fields, player, axisBtn, counter);
+                        validateFieldsForAnotherBoats(fields, player, axisBtn, counter);
+                        placementText.innerHTML = player.name + ', PLACE YOUR ' + player.board.boardShips[counter].name + ':';
+                        placementText.innerHTML = placementText.innerHTML.toUpperCase();
+                    }
                 }
             });
             
                 element.addEventListener('mouseover', () =>{
-                    if(element.classList.contains('available'))
+                    if(element.classList.contains('available') && counter < 5)
                     drawShipFields(fields, player, axisBtn, counter, i, j, '#b8b7b7')
                     
                 });
     
                 element.addEventListener('mouseout', () =>{
-                    if(element.classList.contains('available'))
+                    if(element.classList.contains('available') && counter < 5)
                     drawShipFields(fields, player, axisBtn, counter, i, j, 'transparent')
                 });
             
                 element.addEventListener('mouseover', () =>{
-                    if(element.classList.contains('unavailable') && player.board.board[i][j] === null)
+                    if(element.classList.contains('unavailable') && player.board.board[i][j] === null && counter < 5)
                     element.style.backgroundColor = '#c51e1e';
                 });
                 element.addEventListener('mouseout', () =>{
-                    if(element.classList.contains('unavailable'))
+                    if(element.classList.contains('unavailable') && counter < 5)
                     element.style.backgroundColor = 'transparent';
                 });
 
@@ -212,6 +241,11 @@ function resetBoardColors(field)
             element.style.backgroundColor = 'transparent';
         });
     });
+}
+
+function battlePageHTML()
+{
+
 }
 
 export { opacity0To1, opacity1To0, placementPageHTML}
