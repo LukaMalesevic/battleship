@@ -35,20 +35,18 @@ class Gameboard
 
     receiveAttack(coordinates, board)
     {
-        for(let i = 0; i < board.dimensions; i++)
+        for(let i = 0; i < 10; i++)
         {
-            for(let j = 0; j < board.dimensions; j++)
+            for(let j = 0; j < 10; j++)
             {
                 if(board.board[coordinates[0]][coordinates[1]] === board.board[i][j])
                 {
-                    for(let i = 0; i < board.boardShips.length; i++)
+                    for(let z = 0; z < board.boardShips.length; z++)
                     {
-                        if(board.boardShips[i].name === board.board[i][j])
+                        if(board.boardShips[z].name === board.board[i][j])
                         {
-                            board.boardShips[i].hit();
-                            board.board[i][j] = null;
-
-                            return board.board;
+                            board.boardShips[z].hit();
+                            return board.boardShips[z].numberOfHit;
                         }
                     }
                 }

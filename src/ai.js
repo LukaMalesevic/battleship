@@ -24,8 +24,8 @@ function generateAIBoats()
 
             if(fieldsAI[x][y].classList.contains('available') && AI.board.board[x][y] === null)
             {
-                AIshipsCordinates.push([x, y]);
-                setUpTheBoatImage(AI, i, fieldsAI[x][y], axisAI.innerHTML);
+                AIshipsCordinates.push([AI, i, fieldsAI[x][y], axisAI.innerHTML]);
+                // setUpTheBoatImage(AI, i, fieldsAI[x][y], axisAI.innerHTML);
                 AI.board.placeAShip([x, y], AI.board.boardShips[i], axisAI.innerHTML, AI.board.board)
                 validation = true;
             }
@@ -38,6 +38,7 @@ function generateAIBoats()
             element.classList.remove('available', 'unavailable');
         });
     });
+    console.log(AI.board.board);
 }
 
 export { generateAIBoats, AIshipsCordinates }
