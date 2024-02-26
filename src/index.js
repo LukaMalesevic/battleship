@@ -1,5 +1,5 @@
 import "./style.css";
-import { logoImage, homepageDiv, inputName, startGameBtn, nameRequired} from "./dom-elements";
+import { homepageDiv, inputName, startGameBtn, nameRequired, playAgainButton} from "./dom-elements";
 import { placementPage, placementTxt, axisBtn, fields } from "./dom-elements";
 import { opacity0To1, opacity1To0, placementPageHTML} from "./homepage";
 import { Gameboard } from "./gameboard";
@@ -29,6 +29,9 @@ startGameBtn.addEventListener('click', () =>{
         startGameBtn.style.pointerEvents = 'none';
         placementPageHTML(player, placementTxt, axisBtn, fields);
     }
+})
+playAgainButton.addEventListener('click', () =>{
+    location.reload();
 })
 
 export { AI , player }

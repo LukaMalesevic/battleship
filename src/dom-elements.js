@@ -19,6 +19,9 @@ const watersTxt = document.getElementById('waters-txt');
 const ordersResults = document.getElementById('orders-results');
 const ordersResultsTxt = document.getElementById('orders-results-txt');
 const fieldsHTMLAI = document.getElementsByClassName('fields-ai');
+const winnerScreen = document.getElementById('winner-screen');
+const winnerText = document.getElementById('winner-text');
+const playAgainButton = document.getElementById('play-again');
 
 let fields = Array(10);
 let z = 0;
@@ -45,4 +48,4 @@ for(let i = 0; i < 10; i++)
 
 export { logoImage, homepageDiv, inputName, startGameBtn, nameRequired }
 export { placementPage, placementTxt, axisBtn, fields, fieldsAI }
-export { bothFields, fieldsTableAi, watersTxt, ordersResults, ordersResultsTxt}
+export { bothFields, fieldsTableAi, watersTxt, ordersResults, ordersResultsTxt, winnerScreen, winnerText, playAgainButton}

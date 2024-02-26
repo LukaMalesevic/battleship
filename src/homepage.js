@@ -1,6 +1,6 @@
 import { battleHTML } from "./battle";
-import { logoImage } from "./dom-elements";
-import { placementPage, bothFields, fieldsTableAi, watersTxt, ordersResults, ordersResultsTxt} from "./dom-elements";
+import { logoImage, winnerScreen, winnerText } from "./dom-elements";
+import { placementPage, bothFields, fieldsTableAi, watersTxt, ordersResults} from "./dom-elements";
 
 function opacity0To1(element)
 {
@@ -27,7 +27,11 @@ function opacity1To0(element1, element2)
             logoImage.style.width = '250px';
             logoImage.style.top = '-10px';
             element2.style.visibility = 'visible';
+            element2.style.pointerEvents = 'auto';
             element2.style.height = '80%';
+            winnerScreen.style.width = '1200px';
+            winnerText.style.textWrap = 'wrap';
+            opacity0To1(element2);
             clearInterval(interval);
         }
         else

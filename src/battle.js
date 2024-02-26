@@ -1,7 +1,9 @@
-import { fields, fieldsAI, ordersResultsTxt,} from "./dom-elements";
+import { fields, fieldsAI, ordersResultsTxt, placementPage, winnerScreen, winnerText} from "./dom-elements";
 import { AI, player } from ".";
-import { setUpTheBoatImage } from "./homepage";
+import { setUpTheBoatImage, opacity1To0 } from "./homepage";
 import { AIshipsCordinates } from "./ai";
+
+
 let turn = 'player';
 let lastAIshot = false;
 let currentPaterrnIndex = -1;
@@ -173,7 +175,10 @@ function checkIfAIWon()
 
     if(AIWin === true)
     {
-        // ordersResultsTxt.innerHTML = `Admiral ${player.name}, sadly enemy won....`;
+        winnerText.innerHTML = `YOU FAILED BE ASHAMED! ${AI.name} WON THE BATTLESHIP`;
+        winnerText.style.width = '15ch';
+        winnerText.style.fontSize = '125px';
+        opacity1To0(placementPage, winnerScreen);
     }
 }
 
@@ -192,10 +197,12 @@ function showImageIfShipSunk()
         }
     }
 
-
     if(playerWin === true)
     {
-        // ordersResultsTxt.innerHTML = `ADMIRAL ${player.name.toUpperCase()}, WE WON !!!`;
+        winnerText.innerHTML = `CONGRATULATIONS ${player.name} YOU WON THE BATTLESHIP`;
+        winnerText.style.width = '15ch';
+        winnerText.style.fontSize = '125px';
+        opacity1To0(placementPage, winnerScreen);
     }
 }
 export { battleHTML }
