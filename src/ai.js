@@ -38,7 +38,7 @@ function generateAIBoats()
             element.classList.remove('available', 'unavailable');
         });
     });
-    console.log(AI.board.board);
+    // console.log(AI.board.board);
 }
 
 export { generateAIBoats, AIshipsCordinates }

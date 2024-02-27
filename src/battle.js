@@ -118,7 +118,7 @@ function AIShootingPatern(ordersStrings)
     }else
     {
         let hasDivChild;
-        console.log(currentPaterrnIndex);
+        // console.log(currentPaterrnIndex);
         do{
             x = lastAIshot[0] + currentPattern[currentPaterrnIndex][0];
             y = lastAIshot[1] + currentPattern[currentPaterrnIndex][1];
