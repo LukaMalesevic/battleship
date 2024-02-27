@@ -236,7 +236,7 @@ function setUpTheBoatImage(player, counter, element, axis)
     let className;
     if(counter === 4) className = 'patrol_boat' + axis.charAt(axis.length - 1).toLowerCase();
     else className = player.board.boardShips[counter].name.toLowerCase() + axis.charAt(axis.length - 1).toLowerCase();
-    if(element.innerHTML.length <= 27) element.innerHTML += `<img class="${className}" src="/dist/images/${player.board.boardShips[counter].name.toLowerCase()}.png" alt="">`;
+    if(element.innerHTML.length <= 27) element.innerHTML += `<img class="${className}" src="./dist/images/${player.board.boardShips[counter].name.toLowerCase()}.png" alt="">`;
     
 }
 
